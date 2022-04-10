@@ -1,6 +1,7 @@
 from os import walk
 from shutil import copyfile
 from cv2 import cv2
+from pandas import pandas as pd
 # tipo = 'maligno'
 
 def preTest():
@@ -30,7 +31,9 @@ def preTest():
 
 def preTrain():
     path = 'D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\asl_alphabet_train\\asl_alphabet_train'
-
+    df = pd.DataFrame()
+    imageNames = []
+    classes = []
     # f = []
     # dirpath, dirnames, filenames = walk(path)
 
@@ -50,10 +53,22 @@ def preTrain():
             # print('zoom = {} num={}'.format(zoom, num))
             # print(dst+zoom+'x\\maligno\\'+name)
             # copyfile(dirpath+'\\'+name, dst+'\\'+name)
-            gray = cv2.imread(dirpath+'\\'+name, 0)
-            cv2.imwrite(dst+name, gray)
-            # break
+            # imageNames.append(name)
+            c = list(name)[0]
+            if c!='d' and c!='s' and c!='n':
+                # print(name, c)
+                imageNames.append(name)
+                classes.append(c)
 
+
+            # gray = cv2.imread(dirpath+'\\'+name, 0)
+            # cv2.imwrite(dst+name, gray)
+            # if index == 5:
+                # break
+
+    df['Name'] = imageNames
+    df['Class'] = classes
+    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\bw\\all.csv', index=False)
 # preTest()
 preTrain()
 print('Finish!!')
