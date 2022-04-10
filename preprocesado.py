@@ -55,7 +55,7 @@ def preTrain():
             # copyfile(dirpath+'\\'+name, dst+'\\'+name)
             # imageNames.append(name)
             c = list(name)[0]
-            if c!='d' and c!='s' and c!='n':
+            if c=='A' or c=='E' or c=='I' or c=='O' or c=='U':
                 # print(name, c)
                 imageNames.append(name)
                 classes.append(c)
