@@ -63,12 +63,12 @@ def preTrain():
 
             # gray = cv2.imread(dirpath+'\\'+name, 0)
             # cv2.imwrite(dst+name, gray)
-            # if index == 5:
-                # break
+            if index == 1000:
+                break
 
     df['Name'] = imageNames
     df['Class'] = classes
-    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\bw\\all.csv', index=False)
+    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\bw\\data1000.csv', index=False)
 # preTest()
 preTrain()
 print('Finish!!')
