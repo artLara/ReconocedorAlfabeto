@@ -59,18 +59,18 @@ def preTrain():
                 # print(name, c)
                 imageNames.append(name)
                 classes.append(c)
-                copyfile(dirpath+'\\'+name, dst+'\\'+name)
+                # copyfile(dirpath+'\\'+name, dst+'\\'+name)
 
 
 
             # gray = cv2.imread(dirpath+'\\'+name, 0)
             # cv2.imwrite(dst+name, gray)
-            # if index == 100:
-            #     break
+            if index == 2000:
+                break
 
     df['Name'] = imageNames
     df['Class'] = classes
-    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\vocales\\vocales.csv', index=False)
+    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\vocales\\vocales2000.csv', index=False)
 # preTest()
 preTrain()
 print('Finish!!')
