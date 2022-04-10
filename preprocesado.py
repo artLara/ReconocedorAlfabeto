@@ -38,7 +38,7 @@ def preTrain():
     # dirpath, dirnames, filenames = walk(path)
 
     print(path)
-    dst = 'D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\bw\\train\\'
+    dst = 'D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\color100'
     for (dirpath, dirnames, filenames) in walk(path):
         # f.extend(filenames)
         # for signal in dirnames:
@@ -59,16 +59,18 @@ def preTrain():
                 # print(name, c)
                 imageNames.append(name)
                 classes.append(c)
+                copyfile(dirpath+'\\'+name, dst+'\\'+name)
+
 
 
             # gray = cv2.imread(dirpath+'\\'+name, 0)
             # cv2.imwrite(dst+name, gray)
-            if index == 500:
+            if index == 100:
                 break
 
     df['Name'] = imageNames
     df['Class'] = classes
-    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\bw\\data500.csv', index=False)
+    df.to_csv('D:\\CIC\\Matematicas\\ReconocedorAlfabeto\\color100\\dataColor100.csv', index=False)
 # preTest()
 preTrain()
 print('Finish!!')
